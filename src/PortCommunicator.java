@@ -9,7 +9,7 @@ import javax.sound.sampled.Port;
 public class PortCommunicator implements Runnable {
 
     /**
-     * Serial Communcation using 9600 baud, eight bit, no parity, and hardware control = off
+     * Serial Communication using 9600 baud, eight bit, no parity, and hardware control = off
      */
 
     protected static SerialPort mSerialPort;
@@ -25,7 +25,7 @@ public class PortCommunicator implements Runnable {
     }
 
     /**
-     * Method to open Telescope the entire way
+     * Method to open Telescope
      */
 
     public static void moveDome(String command, boolean allTheWay) throws SerialPortException {
@@ -48,6 +48,7 @@ public class PortCommunicator implements Runnable {
                  */
 
             }
+            System.out.println("Limit reached");
         } else {
             try {
                 mSerialPort.writeString(command);

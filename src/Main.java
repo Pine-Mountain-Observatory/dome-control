@@ -62,7 +62,6 @@ public class Main {
    // private static JLabel mLeftSideSteps = new JLabel();
 
     public static void main(String[] args) {
-        //TODO Connect to serial port to send comands
 
         /*
         GUI
