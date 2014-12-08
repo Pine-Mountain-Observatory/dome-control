@@ -37,7 +37,7 @@ public class Main {
    // private static JPanel mHeaderPanel;
 
     //Panel sizes
-    private static final int PANEL_HEIGHT = 500;
+    private static final int PANEL_HEIGHT = 400;
     private static final int PANEL_WIDTH = 500;
 
     //Main Buttons
@@ -52,7 +52,7 @@ public class Main {
 
     //Left Telescope Buttons
     private static JButton mOpenLeftAll = new JButton("Open Left");
-    private static JButton mCloseLeftAll = new JButton("CLose Left");
+    private static JButton mCloseLeftAll = new JButton("Close Left");
     private static JButton mOpenLeftStep = new JButton("Step Left Open");
     private static JButton mCloseLeftStep = new JButton("Step Left Closed");
 
