@@ -26,7 +26,7 @@ public class PortCommunicator implements Runnable {
      * Method to open Telescope
      */
 
-    public static void moveDome(String command, boolean allTheWay) throws SerialPortException {
+    public static synchronized void moveDome(String command, boolean allTheWay) throws SerialPortException {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
         if (allTheWay) {
             while (!limitReached) {
@@ -60,7 +60,7 @@ public class PortCommunicator implements Runnable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         try {
             serialPort.openPort();
             System.out.println("Port Opened");
