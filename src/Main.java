@@ -78,13 +78,13 @@ public class Main {
         mRightButtonPanel = new JPanel();
         mRightButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
         mRightButtonPanel.setLayout(new GridLayout(4, 1));
-        mFrame.add(mRightButtonPanel, BorderLayout.WEST);
+        mFrame.add(mRightButtonPanel, BorderLayout.EAST);
 
         //Left button panels
         mLeftButtonPanel = new JPanel();
         mLeftButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
         mLeftButtonPanel.setLayout(new GridLayout(4, 1));
-        mFrame.add(mLeftButtonPanel, BorderLayout.EAST);
+        mFrame.add(mLeftButtonPanel, BorderLayout.WEST);
 
         //Footer Panel
         mFooterPanel = new JPanel();
