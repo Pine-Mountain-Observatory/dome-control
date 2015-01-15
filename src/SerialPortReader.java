@@ -7,6 +7,7 @@ import jssc.SerialPortException;
  */
 public class SerialPortReader implements SerialPortEventListener {
 
+    //TODO Get Dome to open or close all the way before stopping
     @Override
     public void serialEvent(SerialPortEvent serialPortEvent) {
         if (serialPortEvent.isRXCHAR()) { //Checks to see if there is data coming from the serial port

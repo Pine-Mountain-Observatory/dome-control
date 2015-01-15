@@ -5,11 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by Jacob on 12/5/2014.
  */
 public class Main {
+
 
     //Title and to connect to hardware
     private static final SerialPort SERIAL_PORT = new SerialPort("COM3");
@@ -60,9 +65,11 @@ public class Main {
     private static JLabel mCopyEast = new JLabel("© Jacob Bieker 2014-" + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
   //  private static JLabel mEastSideSteps = new JLabel();
    // private static JLabel mWestSideSteps = new JLabel();
-
+    private static ExecutorService pool;
     public static void main(String[] args) {
 
+        //ExecuterSErvice
+        pool = Executors.newFixedThreadPool(2);
         /*
         GUI
          */
@@ -140,9 +147,9 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -153,9 +160,9 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
 
         }
@@ -171,7 +178,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -182,7 +189,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -193,7 +200,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, false);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -204,7 +211,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, false);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -219,7 +226,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -230,7 +237,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, false);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -241,7 +248,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
@@ -252,7 +259,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, false);
-            portCommunicator.run();
+            pool.execute(portCommunicator);
 
         }
 
