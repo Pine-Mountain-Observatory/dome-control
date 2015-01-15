@@ -26,6 +26,7 @@ public class PortCommunicator implements Runnable {
      * Method to open Telescope
      */
 
+    //TODO OTher way to get dome to close, figure out how many times it takes to completely open or close and hardcode it in
     public static synchronized void moveDome(String command, boolean allTheWay) throws SerialPortException {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
         if (allTheWay) {
@@ -46,6 +47,7 @@ public class PortCommunicator implements Runnable {
                  */
 
             }
+            serialPort.writeString(command);
             System.out.println("Limit reached");
         } else {
             try {
