@@ -15,6 +15,9 @@ public class PortCommunicator implements Runnable {
     private static boolean mAllTheWay;
     private static String mCommand;
 
+    //Change to determine how many times it needs to send command to open or close dome
+    private static final int numberOfTimes = 0;
+
     //Constructor
     public PortCommunicator(SerialPort port, String command, boolean allTheWay) {
         serialPort = port;
