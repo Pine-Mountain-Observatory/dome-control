@@ -12,7 +12,7 @@ import java.util.Calendar;
 public class Main {
 
     //Title and to connect to hardware
-    private static final SerialPort SERIAL_PORT = new SerialPort("COM4");
+    private static final SerialPort SERIAL_PORT = new SerialPort("COM3");
     private static final String mTitle = "OORCC - Robbins";
 
     //Serial Port Communicator
