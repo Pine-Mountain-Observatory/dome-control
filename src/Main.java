@@ -57,7 +57,7 @@ public class Main {
     private static JButton mCloseWestStep = new JButton("Step West Closed");
 
     //Words
-    private static JLabel mCopyEast = new JLabel("© Jacob Bieker " + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
+    private static JLabel mCopyEast = new JLabel("© Jacob Bieker 2014-" + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
   //  private static JLabel mEastSideSteps = new JLabel();
    // private static JLabel mWestSideSteps = new JLabel();
 
