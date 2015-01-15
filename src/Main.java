@@ -19,20 +19,20 @@ public class Main {
     private static PortCommunicator portCommunicator;
 
     //Commands for telescope
-    private static final String mRightOpenCommand = "a";
-    private static final String mRightCloseCommand = "A";
-    private static final String mLeftOpenCommand = "b";
-    private static final String mLeftCloseCommand = "B";
-   // private static final String mRightOpenedSignal = "x";
-   // private static final String mRightClosedSignal = "X";
-   // private static final String mLeftOpenedSignal = "y";
-   // private static final String mLeftClosedSignal = "Y";
+    private static final String mEastOpenCommand = "a";
+    private static final String mEastCloseCommand = "A";
+    private static final String mWestOpenCommand = "b";
+    private static final String mWestCloseCommand = "B";
+   // private static final String mEastOpenedSignal = "x";
+   // private static final String mEastClosedSignal = "X";
+   // private static final String mWestOpenedSignal = "y";
+   // private static final String mWestClosedSignal = "Y";
 
     //Different divisions of GUI
     private static JFrame mFrame = new JFrame(mTitle);
     private static JPanel mBigButtonPanel;
-    private static JPanel mRightButtonPanel;
-    private static JPanel mLeftButtonPanel;
+    private static JPanel mEastButtonPanel;
+    private static JPanel mWestButtonPanel;
     private static JPanel mFooterPanel;
    // private static JPanel mHeaderPanel;
 
@@ -44,22 +44,22 @@ public class Main {
     private static JButton mOpenAll = new JButton("Open Dome");
     private static JButton mCloseAll = new JButton("Close Dome");
 
-    //Right telescope Buttons
-    private static JButton mOpenRightAll = new JButton("Open Right");
-    private static JButton mCloseRightAll = new JButton("Close Right");
-    private static JButton mOpenRightStep = new JButton("Step Right Open");
-    private static JButton mCloseRightStep = new JButton("Step Right Closed");
+    //East telescope Buttons
+    private static JButton mOpenEastAll = new JButton("Open East");
+    private static JButton mCloseEastAll = new JButton("Close East");
+    private static JButton mOpenEastStep = new JButton("Step East Open");
+    private static JButton mCloseEastStep = new JButton("Step East Closed");
 
-    //Left Telescope Buttons
-    private static JButton mOpenLeftAll = new JButton("Open Left");
-    private static JButton mCloseLeftAll = new JButton("Close Left");
-    private static JButton mOpenLeftStep = new JButton("Step Left Open");
-    private static JButton mCloseLeftStep = new JButton("Step Left Closed");
+    //West Telescope Buttons
+    private static JButton mOpenWestAll = new JButton("Open West");
+    private static JButton mCloseWestAll = new JButton("Close West");
+    private static JButton mOpenWestStep = new JButton("Step West Open");
+    private static JButton mCloseWestStep = new JButton("Step West Closed");
 
     //Words
-    private static JLabel mCopyright = new JLabel("© Jacob Bieker " + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyright
-  //  private static JLabel mRightSideSteps = new JLabel();
-   // private static JLabel mLeftSideSteps = new JLabel();
+    private static JLabel mCopyEast = new JLabel("© Jacob Bieker " + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
+  //  private static JLabel mEastSideSteps = new JLabel();
+   // private static JLabel mWestSideSteps = new JLabel();
 
     public static void main(String[] args) {
 
@@ -74,17 +74,17 @@ public class Main {
         mBigButtonPanel.setLayout(new GridLayout(2, 1));
         mFrame.add(mBigButtonPanel, BorderLayout.NORTH);
 
-        //Right button panels
-        mRightButtonPanel = new JPanel();
-        mRightButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
-        mRightButtonPanel.setLayout(new GridLayout(4, 1));
-        mFrame.add(mRightButtonPanel, BorderLayout.EAST);
+        //East button panels
+        mEastButtonPanel = new JPanel();
+        mEastButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
+        mEastButtonPanel.setLayout(new GridLayout(4, 1));
+        mFrame.add(mEastButtonPanel, BorderLayout.EAST);
 
-        //Left button panels
-        mLeftButtonPanel = new JPanel();
-        mLeftButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
-        mLeftButtonPanel.setLayout(new GridLayout(4, 1));
-        mFrame.add(mLeftButtonPanel, BorderLayout.WEST);
+        //West button panels
+        mWestButtonPanel = new JPanel();
+        mWestButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH/2, PANEL_HEIGHT));
+        mWestButtonPanel.setLayout(new GridLayout(4, 1));
+        mFrame.add(mWestButtonPanel, BorderLayout.WEST);
 
         //Footer Panel
         mFooterPanel = new JPanel();
@@ -99,28 +99,28 @@ public class Main {
         mBigButtonPanel.add(mCloseAll);
         mCloseAll.addActionListener(new CloseAllButtonListener());
 
-        //Adding Small Left Buttons
-        mLeftButtonPanel.add(mOpenLeftAll);
-        mOpenLeftAll.addActionListener(new OpenLeftAllButtonListener());
-        mLeftButtonPanel.add(mCloseLeftAll);
-        mCloseLeftAll.addActionListener(new CloseLeftAllButtonListener());
-        mLeftButtonPanel.add(mOpenLeftStep);
-        mOpenLeftStep.addActionListener(new OpenLeftStepButtonListener());
-        mLeftButtonPanel.add(mCloseLeftStep);
-        mCloseLeftStep.addActionListener(new CloseLeftStepButtonListener());
+        //Adding Small West Buttons
+        mWestButtonPanel.add(mOpenWestAll);
+        mOpenWestAll.addActionListener(new OpenWestAllButtonListener());
+        mWestButtonPanel.add(mCloseWestAll);
+        mCloseWestAll.addActionListener(new CloseWestAllButtonListener());
+        mWestButtonPanel.add(mOpenWestStep);
+        mOpenWestStep.addActionListener(new OpenWestStepButtonListener());
+        mWestButtonPanel.add(mCloseWestStep);
+        mCloseWestStep.addActionListener(new CloseWestStepButtonListener());
 
-        //Adding Small Right Buttons
-        mRightButtonPanel.add(mOpenRightAll);
-        mOpenRightAll.addActionListener(new OpenRightAllButtonListener());
-        mRightButtonPanel.add(mCloseRightAll);
-        mCloseRightAll.addActionListener(new CloseRightAllButtonListener());
-        mRightButtonPanel.add(mOpenRightStep);
-        mOpenRightStep.addActionListener(new OpenRightStepButtonListener());
-        mRightButtonPanel.add(mCloseRightStep);
-        mCloseRightStep.addActionListener(new CloseRightStepButtonListener());
+        //Adding Small East Buttons
+        mEastButtonPanel.add(mOpenEastAll);
+        mOpenEastAll.addActionListener(new OpenEastAllButtonListener());
+        mEastButtonPanel.add(mCloseEastAll);
+        mCloseEastAll.addActionListener(new CloseEastAllButtonListener());
+        mEastButtonPanel.add(mOpenEastStep);
+        mOpenEastStep.addActionListener(new OpenEastStepButtonListener());
+        mEastButtonPanel.add(mCloseEastStep);
+        mCloseEastStep.addActionListener(new CloseEastStepButtonListener());
 
         //Adding to Footer
-        mFooterPanel.add(mCopyright);
+        mFooterPanel.add(mCopyEast);
         mFooterPanel.add(new JLabel(new ImageIcon("C:\\Users\\Jacob\\IdeaProjects\\OORCC_Robbins\\images\\79752561999.gif")));
 
         mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,9 +139,9 @@ public class Main {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightOpenCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
             portCommunicator.run();
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftOpenCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
             portCommunicator.run();
 
         }
@@ -152,9 +152,9 @@ public class Main {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightCloseCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
             portCommunicator.run();
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftCloseCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
             portCommunicator.run();
 
 
@@ -164,46 +164,46 @@ public class Main {
 
 
     /*****************************************************************************************************************
-     * Right Side Button Listeners
+     * East Side Button Listeners
      */
-    private static class OpenRightAllButtonListener implements ActionListener {
+    private static class OpenEastAllButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightOpenCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class CloseRightAllButtonListener implements ActionListener {
+    private static class CloseEastAllButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightCloseCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class CloseRightStepButtonListener implements ActionListener {
+    private static class CloseEastStepButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightCloseCommand, false);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, false);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class OpenRightStepButtonListener implements ActionListener {
+    private static class OpenEastStepButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mRightOpenCommand, false);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, false);
             portCommunicator.run();
 
         }
@@ -211,47 +211,47 @@ public class Main {
     }
 
     /******************************************************************************************************************
-     * Left Side Button Listeners
+     * West Side Button Listeners
      */
 
-    private static class OpenLeftAllButtonListener implements ActionListener {
+    private static class OpenWestAllButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftOpenCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class OpenLeftStepButtonListener implements ActionListener {
+    private static class OpenWestStepButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftOpenCommand, false);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, false);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class CloseLeftAllButtonListener implements ActionListener {
+    private static class CloseWestAllButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftCloseCommand, true);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
             portCommunicator.run();
 
         }
 
     }
 
-    private static class CloseLeftStepButtonListener implements ActionListener {
+    private static class CloseWestStepButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            portCommunicator = new PortCommunicator(SERIAL_PORT, mLeftCloseCommand, false);
+            portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, false);
             portCommunicator.run();
 
         }
