@@ -37,6 +37,22 @@ public class PortCommunicator implements Runnable {
                 System.out.println("moveDome called");
                 try {
                     serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
+                    serialPort.writeString(command);
                 } catch (SerialPortException e) {
                     e.printStackTrace();
                 }
