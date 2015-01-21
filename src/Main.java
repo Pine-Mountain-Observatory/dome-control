@@ -126,7 +126,7 @@ public class Main {
 
         //Adding to Footer
         mFooterPanel.add(mCopyEast);
-        mFooterPanel.add(new JLabel(new ImageIcon("C:\\Users\\Jacob\\IdeaProjects\\OORCC_Robbins\\images\\79752561999.gif")));
+        mFooterPanel.add(new JLabel(new ImageIcon("images/79752561999.gif")));
 
         mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mFrame.pack();

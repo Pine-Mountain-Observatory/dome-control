@@ -34,7 +34,7 @@ public class PortCommunicator implements Runnable {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
         if (allTheWay) {
             //while (!limitReached) {
-                System.out.println("moveDome called");
+                //System.out.println("moveDome called");
                 try {
                     serialPort.writeString(command);
                     serialPort.writeString(command);
@@ -83,16 +83,16 @@ public class PortCommunicator implements Runnable {
     public synchronized void run() {
         try {
             serialPort.openPort();
-            System.out.println("Port Opened");
+            //System.out.println("Port Opened");
             serialPort.setParams(9600, 8, 1, 0);//Check Params for this again
             int mask = SerialPort.MASK_RXCHAR; //Mask to listen to changes in data
             serialPort.setEventsMask(mask);
             serialPort.addEventListener(new SerialPortReader());
-            System.out.println("Mask and SerialPortReader added");
+            //System.out.println("Mask and SerialPortReader added");
             moveDome(mCommand, mAllTheWay);
-            System.out.println("moveDome finished");
+            //System.out.println("moveDome finished");
             serialPort.closePort();
-            System.out.println("Port Closed");
+            //System.out.println("Port Closed");
         } catch (SerialPortException e) {
             e.printStackTrace();
         }
