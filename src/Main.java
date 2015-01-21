@@ -67,7 +67,7 @@ public class Main {
     public static void main(String[] args) {
 
         //ExecuterService
-        pool = Executors.newFixedThreadPool(2);
+        pool = Executors.newCachedThreadPool();
         /*
         GUI
          */

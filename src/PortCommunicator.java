@@ -85,6 +85,7 @@ public class PortCommunicator implements Runnable {
     @Override
     public synchronized void run() {
         try {
+            System.out.println("Thread: " + Thread.currentThread().getName() + " Started");
             serialPort.openPort();
             System.out.println("Port Opened");
             serialPort.setParams(9600, 8, 1, 0);//Check Params for this again
@@ -96,6 +97,7 @@ public class PortCommunicator implements Runnable {
             System.out.println("moveDome finished");
             serialPort.closePort();
             System.out.println("Port Closed");
+            System.out.println("Thread: " + Thread.currentThread().getName() + " Ended");
         } catch (SerialPortException e) {
             e.printStackTrace();
         }
