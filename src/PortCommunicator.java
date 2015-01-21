@@ -33,7 +33,7 @@ public class PortCommunicator implements Runnable {
     public static synchronized void moveDome(String command, boolean allTheWay) throws SerialPortException {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
         if (allTheWay) {
-            while (!limitReached) {
+            //while (!limitReached) {
                 System.out.println("moveDome called");
                 try {
                     serialPort.writeString(command);
@@ -65,8 +65,7 @@ public class PortCommunicator implements Runnable {
                  *
                  */
 
-            }
-            serialPort.writeString(command);
+            //}
             System.out.println("Limit reached");
         } else {
             try {
