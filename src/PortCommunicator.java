@@ -4,7 +4,7 @@ import jssc.*;
 /**
  * Created by Jacob on 12/6/2014.
  */
-public class PortCommunicator implements Runnable {
+public class PortCommunicator {
 
     /**
      * Serial Communication using 9600 baud, eight bit, no parity, and hardware control = off
@@ -23,6 +23,7 @@ public class PortCommunicator implements Runnable {
         serialPort = port;
         mCommand = command;
         mAllTheWay = allTheWay;
+        runCommand();
     }
 
     /**
@@ -30,7 +31,7 @@ public class PortCommunicator implements Runnable {
      */
 
     //TODO Other way to get dome to close, figure out how many times it takes to completely open or close and hardcode it in
-    public static synchronized void moveDome(String command, boolean allTheWay) throws SerialPortException {
+    public static void moveDome(String command, boolean allTheWay) throws SerialPortException {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
         System.out.println("Value of allTheWay:" + allTheWay);
         if (allTheWay == true) {
@@ -82,10 +83,9 @@ public class PortCommunicator implements Runnable {
         }
     }
 
-    @Override
-    public synchronized void run() {
+
+    private static void runCommand() {
         try {
-            System.out.println("Thread: " + Thread.currentThread().getName() + " Started");
             serialPort.openPort();
             System.out.println("Port Opened");
             serialPort.setParams(9600, 8, 1, 0);//Check Params for this again
@@ -97,12 +97,9 @@ public class PortCommunicator implements Runnable {
             System.out.println("moveDome finished");
             serialPort.closePort();
             System.out.println("Port Closed");
-            System.out.println("Thread: " + Thread.currentThread().getName() + " Ended");
         } catch (SerialPortException e) {
             e.printStackTrace();
         }
-
-
     }
 
 
