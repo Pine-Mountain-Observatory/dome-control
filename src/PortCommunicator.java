@@ -12,6 +12,7 @@ public class PortCommunicator {
 
     protected static SerialPort serialPort;
     protected static boolean limitReached = false;
+    protected static boolean currentLimitReached = false;
     private static boolean mAllTheWay;
     private static String mCommand;
 
@@ -33,9 +34,10 @@ public class PortCommunicator {
     //TODO Other way to get dome to close, figure out how many times it takes to completely open or close and hardcode it in
     public static void moveDome(String command, boolean allTheWay) throws SerialPortException {
         limitReached = false;//Necessary so that moveDome will still function right after limitReached is set to true once on SerialPortReader
+        currentLimitReached = false;
         System.out.println("Value of allTheWay:" + allTheWay);
         if (allTheWay == true) {
-            while (!limitReached) {
+            //while (!limitReached) {
                 System.out.println("moveDome called");
                 try {
                     serialPort.writeString(command);
@@ -68,7 +70,7 @@ public class PortCommunicator {
                  *
                  */
 
-            }
+            //}
             System.out.println("Limit reached");
         } else {
             try {
