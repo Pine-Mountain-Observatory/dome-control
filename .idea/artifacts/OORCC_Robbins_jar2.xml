@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="OORCC_Robbins:jar2">
-    <output-path>$PROJECT_DIR$/out/artifacts/OORCC_Robbins_jar2</output-path>
-    <root id="archive" name="OORCC_Robbins.jar">
-      <element id="module-output" name="OORCC_Robbins" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jssc-2.8.0.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
