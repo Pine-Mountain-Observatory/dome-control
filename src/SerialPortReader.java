@@ -20,8 +20,8 @@ public class SerialPortReader implements SerialPortEventListener {
                     PortCommunicator.limitReached = true; //sets variable to true, which stops program trying to open dome
                     System.out.println("limitReached = true");
                 } else if (response.equalsIgnoreCase("3") || response.equalsIgnoreCase("2") || response.equalsIgnoreCase("1")) {
-                    PortCommunicator.limitReached = false;
-                    System.out.println("3,2,1 limitReached = false");
+                    PortCommunicator.currentLimitReached = true;
+                    System.out.println("3,2,1 currentLimitReached = false");
 
                 } else {
                     PortCommunicator.limitReached = false;//sets to false, so program will continue sending commands
