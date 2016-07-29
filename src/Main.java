@@ -63,11 +63,7 @@ public class Main {
     private static JLabel mCopyEast = new JLabel("© Jacob Bieker 2014-" + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
   //  private static JLabel mEastSideSteps = new JLabel();
    // private static JLabel mWestSideSteps = new JLabel();
-    //private static ExecutorService pool;
     public static void main(String[] args) {
-
-        //ExecuterService
-        //pool = Executors.newCachedThreadPool();
         /*
         GUI
          */
@@ -145,8 +141,9 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
+            portCommunicator.run();
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
-
+            portCommunicator.run();
         }
 
     }
@@ -156,8 +153,9 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
+            portCommunicator.run();
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
-
+            portCommunicator.run();
 
         }
 
@@ -172,7 +170,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, true);
-
+            portCommunicator.run();
         }
 
     }
@@ -182,7 +180,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, true);
-
+            portCommunicator.run();
         }
 
     }
@@ -192,7 +190,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastCloseCommand, false);
-
+            portCommunicator.run();
         }
 
     }
@@ -202,7 +200,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mEastOpenCommand, false);
-
+            portCommunicator.run();
         }
 
     }
@@ -216,7 +214,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, true);
-
+            portCommunicator.run();
         }
 
     }
@@ -226,7 +224,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestOpenCommand, false);
-
+            portCommunicator.run();
         }
 
     }
@@ -236,7 +234,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, true);
-
+            portCommunicator.run();
         }
 
     }
@@ -246,7 +244,7 @@ public class Main {
         @Override
         public void actionPerformed(ActionEvent e) {
             portCommunicator = new PortCommunicator(SERIAL_PORT, mWestCloseCommand, false);
-
+            portCommunicator.run();
         }
 
     }
