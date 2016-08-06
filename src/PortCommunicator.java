@@ -39,6 +39,9 @@ public class PortCommunicator {
         if (allTheWay == true) {
             //while (!limitReached) {
                 System.out.println("moveDome called");
+                for(int i=0;i<10000;i++){
+                    serialPort.writeString(command);
+                }
                 try {
                     serialPort.writeString(command);
                     serialPort.writeString(command);
