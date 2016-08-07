@@ -31,6 +31,7 @@ public class Main {
    // private static final String mWestOpenedSignal = "y";
    // private static final String mWestClosedSignal = "Y";
 
+    /* Commented Out While Testing New GUI Formatting
     //Different divisions of GUI
     private static JFrame mFrame = new JFrame(mTitle);
     private static JPanel mBigButtonPanel;
@@ -38,26 +39,40 @@ public class Main {
     private static JPanel mWestButtonPanel;
     private static JPanel mFooterPanel;
    // private static JPanel mHeaderPanel;
+    */
 
     //Panel sizes
     private static final int PANEL_HEIGHT = 400;
     private static final int PANEL_WIDTH = 500;
 
+    /* Commented Out While Testing New GUI Formatting
     //Main Buttons
     private static JButton mOpenAll = new JButton("Open Dome");
     private static JButton mCloseAll = new JButton("Close Dome");
+    */
 
+    /* Commented Out While Testing New GUI Formatting
     //East telescope Buttons
     private static JButton mOpenEastAll = new JButton("Open East");
     private static JButton mCloseEastAll = new JButton("Close East");
     private static JButton mOpenEastStep = new JButton("Step East Open");
     private static JButton mCloseEastStep = new JButton("Step East Closed");
+    */
 
+    /* Commented Out While Testing New GUI Formatting
     //West Telescope Buttons
     private static JButton mOpenWestAll = new JButton("Open West");
     private static JButton mCloseWestAll = new JButton("Close West");
     private static JButton mOpenWestStep = new JButton("Step West Open");
     private static JButton mCloseWestStep = new JButton("Step West Closed");
+    */
+    
+    //New Format for GUI
+    private final JButton mOpenEast = new JButton("Open East");
+	private final JButton mOpenWest = new JButton("Open West");
+	private final JButton mCloseEast = new JButton("Close East");
+	private final JButton mCloseWest = new JButton("Close East");
+	private final JButton mExit = new JButton("Exit");
 
     //Words
     private static JLabel mCopyEast = new JLabel("© Jacob Bieker 2014-" + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
@@ -68,7 +83,7 @@ public class Main {
         GUI
          */
 
-
+        /*
         //Main button panels
         mBigButtonPanel = new JPanel();
         mBigButtonPanel.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -119,10 +134,34 @@ public class Main {
         mOpenEastStep.addActionListener(new OpenEastStepButtonListener());
         mEastButtonPanel.add(mCloseEastStep);
         mCloseEastStep.addActionListener(new CloseEastStepButtonListener());
+        */
+        
+        //New GUI
+        JFrame mFrame = new JFrame();
+        mFrame.setLayout(new BorderLayout());
+        mFrame.setPreferredSize(PANEL_HEIGHT,PANEL_WIDTH);
+		
+		JPanel mButtonPanel = new JPanel();
+		mButtonPanel.setLayout(new GridLayout(2,2));
+		JPanel mFooterPanel = new JPanel();
+		mFooterPanel.setLayout(new BorderLayout);
+		
+		
+		mButtonPanel.add(mOpenEast);
+		mButtonPanel.add(mOpenWest);
+		mButtonPanel.add(mCloseEast);
+		mButtonPanel.add(mCloseWest);
+		add(mButtonPanel, BorderLayout.CENTER);
+		add(mFooterPanel, BorderLayout.SOUTH)
+		mFooterPanel.add(mExit, BorderLayout.NORTH);
+		mFooterPanel.add(mCopyEast);
+		add(new JLabel(new ImageIcon("images/79752561999.gif")), BorderLayout.NORTH);
 
+        /*
         //Adding to Footer
         mFooterPanel.add(mCopyEast);
         mFooterPanel.add(new JLabel(new ImageIcon("images/79752561999.gif")));
+        */
 
         mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mFrame.pack();
