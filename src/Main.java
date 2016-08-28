@@ -41,6 +41,8 @@ public class Main {
    // private static JPanel mHeaderPanel;
     */
 
+    //TODO Add StepOpen Buttons, Exit Button, Logo/Name, and Footer
+
     //Panel sizes
     private static final int PANEL_HEIGHT = 400;
     private static final int PANEL_WIDTH = 500;
@@ -68,11 +70,11 @@ public class Main {
     */
     
     //New Format for GUI
-    private final JButton mOpenEast = new JButton("Open East");
-	private final JButton mOpenWest = new JButton("Open West");
-	private final JButton mCloseEast = new JButton("Close East");
-	private final JButton mCloseWest = new JButton("Close East");
-	private final JButton mExit = new JButton("Exit");
+    private static JButton mOpenEast = new JButton("Open East");
+    private static JButton mOpenWest = new JButton("Open West");
+    private static JButton mCloseEast = new JButton("Close East");
+    private static JButton mCloseWest = new JButton("Close East");
+    private static JButton mExit = new JButton("Exit");
 
     //Words
     private static JLabel mCopyEast = new JLabel("© Jacob Bieker 2014-" + Calendar.getInstance().get(Calendar.YEAR)); //Auto updates year of copyEast
